@@ -226,43 +226,43 @@ def main():
 
         if len(result):
             st.info(response)
-        # parameters
+        #parameters
         
-        # st.title("Q&A with the document") # title
+        st.title("Compliance Q&A ") # title
 
-        # # add langchain memory to session state
-        # if 'memory' not in st.session_state:
-        #     st.session_state.memory = demo.demo_memory()
+        # add langchain memory to session state
+        if 'memory' not in st.session_state:
+            st.session_state.memory = demo.demo_memory()
 
-        # # add chat history to session
-        # if 'chat_history' not in st.session_state:
-        #     st.session_state.chat_history = []
+        # add chat history to session
+        if 'chat_history' not in st.session_state:
+            st.session_state.chat_history = []
 
-        # # render chat history
-        # for message in st.session_state.chat_history:
-        #     with st.chat_message(message["role"]):
-        #         st.markdown(message["text"])
+        # render chat history
+        for message in st.session_state.chat_history:
+            with st.chat_message(message["role"]):
+                st.markdown(message["text"])
 
-        # # input text box for chatbot
-        # input_text = st.chat_input("Type your question here")
+        # input text box for chatbot
+        input_text = st.chat_input("Type your question here")
         
 
-        # if input_text:
-        #     with st.chat_message("user"):
-        #         st.markdown(input_text)
+        if input_text:
+            with st.chat_message("user"):
+                st.markdown(input_text)
 
-        #     # Append user input to chat history
-        #     st.session_state.chat_history.append({"role":"user", "text":input_text})
+            # Append user input to chat history
+            st.session_state.chat_history.append({"role":"user", "text":input_text})
 
-        #     # Generate chat response using the chatbot instance
-        #     chat_response = demo.demo_conversation(input_text=input_text, memory=st.session_state.memory)
+            # Generate chat response using the chatbot instance
+            chat_response = demo.demo_conversation(input_text=input_text, memory=st.session_state.memory)
 
-        #     # Display the chat response
-        #     with st.chat_message("assistant"):
-        #         st.markdown(chat_response["response"])
+            # Display the chat response
+            with st.chat_message("assistant"):
+                st.markdown(chat_response["response"])
 
-        #     # Append assistant's response to chat history
-        #     st.session_state.chat_history.append({"role":"assistant", "text":chat_response["response"]})
+            # Append assistant's response to chat history
+            st.session_state.chat_history.append({"role":"assistant", "text":chat_response["response"]})
             
                 
         
